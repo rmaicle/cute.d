@@ -1,6 +1,7 @@
 module sut.util;
 
 static import sut.wrapper;
+static import sut.mixins;
 
 debug import std.stdio;
 
@@ -83,42 +84,42 @@ unittest {
  * Returns: `true` if one of the items in the haystack is an exact match
  *          or a substring of the needle.
  */
-bool
-isFound (
-    const string[] haystack,
-    const string needle
-) @safe
-{
-    import std.algorithm: canFind;
-    import std.uni: toLower;
-    return isIn!(
-        (string a, string b) => b.canFind(a.toLower))
-        (haystack, needle.toLower);
-}
-@("isFound: empty")
-unittest {
-    mixin (sut.wrapper.prologue);
-    const string[] arr;
-    assert (!arr.isFound("aaa"));
-}
-@("isFound: exact")
-unittest {
-    mixin (sut.wrapper.prologue);
-    const string[] arr = ["aaa", "bbb", "ccc"];
-    assert (arr.isFound("aaa"));
-    assert (!arr.isFound(""));
-    assert (!arr.isFound("ddd"));
-}
-@("isFound: substring")
-unittest {
-    mixin (sut.wrapper.prologue);
-    const string[] arr = ["aaa", "bbb", "ccc"];
-    assert (arr.isFound("aaa111"));
-    assert (arr.isFound("111aaa"));
-    assert (!arr.isFound(""));
-    assert (!arr.isFound("ddd"));
-
-}
+//bool
+//isFound (
+//    const string[] haystack,
+//    const string needle
+//) @safe
+//{
+//    import std.algorithm: canFind;
+//    import std.uni: toLower;
+//    return isIn!(
+//        (string a, string b) => b.canFind(a.toLower))
+//        (haystack, needle.toLower);
+//}
+//@("isFound: empty")
+//unittest {
+//    mixin (sut.wrapper.prologue);
+//    const string[] arr;
+//    assert (!arr.isFound("aaa"));
+//}
+//@("isFound: exact")
+//unittest {
+//    mixin (sut.wrapper.prologue);
+//    const string[] arr = ["aaa", "bbb", "ccc"];
+//    assert (arr.isFound("aaa"));
+//    assert (!arr.isFound(""));
+//    assert (!arr.isFound("ddd"));
+//}
+//@("isFound: substring")
+//unittest {
+//    mixin (sut.wrapper.prologue);
+//    const string[] arr = ["aaa", "bbb", "ccc"];
+//    assert (arr.isFound("aaa111"));
+//    assert (arr.isFound("111aaa"));
+//    assert (!arr.isFound(""));
+//    assert (!arr.isFound("ddd"));
+//    assert (arr.isFound("ddd"));                // Will FAIL!
+//}
 
 
 
@@ -171,51 +172,51 @@ unittest {
 /**
  * Sort (case insensitive) and remove duplicates.
  */
-string[]
-dedup (const string[] arg) @safe
-{
-    import std.algorithm:
-        sort,
-        uniq;
-    import std.array: array;
-    import std.uni: toLower;
-    return (arg.dup).sort!("toLower(a) < toLower(b)")
-        .release()
-        .uniq()
-        .array();
-}
-@("dedup")
-unittest {
-    mixin (sut.wrapper.prologue);
-    auto arr = ["one", "four", "two", "three", "two", "four", "three"];
-    assert (arr.dedup() == ["four", "one", "three", "two"]);
-}
+//string[]
+//dedup (const string[] arg) @safe
+//{
+//    import std.algorithm:
+//        sort,
+//        uniq;
+//    import std.array: array;
+//    import std.uni: toLower;
+//    return (arg.dup).sort!("toLower(a) < toLower(b)")
+//        .release()
+//        .uniq()
+//        .array();
+//}
+//@("dedup")
+//unittest {
+//    // mixin (sut.wrapper.prologue);
+//    auto arr = ["one", "four", "two", "three", "two", "four", "three"];
+//    assert (arr.dedup() == ["four", "one", "three", "two"]);
+//}
 
 
 
 /**
  * Remove needles from haystack.
  */
-string[]
-remove (
-    const string[] haystack,
-    const string[] needles
-) nothrow @safe
-{
-    import std.algorithm:
-        canFind,
-        remove;
-    return (haystack.dup).remove!(a => needles.canFind(a))();
-}
-@("remove")
-unittest {
-    mixin (sut.wrapper.prologue);
-    auto arr = ["one", "two", "three", "four"];
-    assert (arr.remove(["one"])   == ["two", "three", "four"]);
-    assert (arr.remove(["two"])   == ["one", "three", "four"]);
-    assert (arr.remove(["three"]) == ["one", "two", "four"]);
-    assert (arr.remove(["four"])  == ["one", "two", "three"]);
-}
+//string[]
+//remove (
+//    const string[] haystack,
+//    const string[] needles
+//) nothrow @safe
+//{
+//    import std.algorithm:
+//        canFind,
+//        remove;
+//    return (haystack.dup).remove!(a => needles.canFind(a))();
+//}
+//@("remove")
+//unittest {
+//    // mixin (sut.wrapper.prologue);
+//    auto arr = ["one", "two", "three", "four"];
+//    assert (arr.remove(["one"])   == ["two", "three", "four"]);
+//    assert (arr.remove(["two"])   == ["one", "three", "four"]);
+//    assert (arr.remove(["three"]) == ["one", "two", "four"]);
+//    assert (arr.remove(["four"])  == ["one", "two", "three"]);
+//}
 
 
 
@@ -343,7 +344,7 @@ version (unittest) {
 }
 @("wrapnl: exceeds line then append")
 unittest {
-    mixin (sut.wrapper.prologue);
+    // mixin (sut.wrapper.prologue);
 
     import std.ascii: newline;
     import std.array: join;

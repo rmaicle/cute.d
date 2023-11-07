@@ -1,0 +1,44 @@
+{
+    "folders":
+    [
+        {
+            "path": ".",
+            "folder_exclude_patterns": [
+                ".git",
+                ".hg",
+                ".history",
+                ".svn",
+                ".vscode",
+                "bin",
+                "cov",
+                "CVS",
+                "lib64",
+                "obj",
+                "ref"
+            ],
+            "file_exclude_patterns": [
+                "*.pyc",
+                "*.pyo",
+                "*.exe",
+                "*.dll",
+                "*.obj",
+                "*.o",
+                "*.a",
+                "*.lib",
+                "*.so",
+                "*.dylib",
+                "*.ncb",
+                "*.sdf",
+                "*.suo",
+                "*.pdb",
+                "*.idb",
+                ".DS_Store",
+                "*.class",
+                "*.psd",
+                "*.db",
+                "*.sublime-project",
+                "*.sublime-workspace"
+            ]
+        }
+    ]
+}

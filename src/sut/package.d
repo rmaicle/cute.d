@@ -10,30 +10,52 @@
  *
  *
  *
- * Package unit testing:
- * Requires that the current directory is at <project>/src/sut.
+ * Self unit testing:
  *
- *    dmd                               \
- *      -I=../                          \
- *      -i                              \
- *      -main                           \
- *      -debug                          \
- *      -unittest                       \
- *      -version=sut                    \
- *      -version=sut_internal_unittest  \
- *      -run                            \
- *      package.d
+ * Requires that the current directory is at <project>/build and
+ * executes compile.sh to build and run the binary file. The output
+ * binary file is created in <project>/bin.
+ *
+ *    <project-root>
+ *    ├── bin
+ *    ├── build
+ *    └── src
+ *        ├── sut
+ *        │   ├── list
+ *        │   ├── runner
+ *        │   └── stats
+ *        └── test
+ *            ├── failing
+ *            ├── no_wrapper
+ *            ├── selective_block
+ *            ├── selective_module
+ *            └── with_wrapper
+ *
+ *    dmd                                     \
+ *        -I=<project>/src                    \
+ *        -i                                  \
+ *        -main                               \
+ *        -debug | -release                   \
+ *        -unittest                           \
+ *        -version=sut                        \
+ *        -version=sut_internal_unittest      \
+ *        -od=<project>/bin                   \
+ *        <project>/src/sut/<source-file>
+ *
+ *
+ *
+ * Unit testing other source code using SUT:
  */
+
+
+
 module sut;
 
-public import sut.prologue:
-    executeBlock,
+public import sut.mixins:
+    prologueBlock,
     getUnitTestName,
-    unitTestBlockPrologue;
-public import sut.exclude:
-    exclusionList,
-    excludeModule;
-public import sut.counter: unitTestCounter;
+    executeBlock;
+public import sut.stats: stat;
 
 
 
@@ -48,19 +70,27 @@ version (sut_internal_unittest) {
 
 
 version (sut) {
-    version (D_ModuleInfo):
+    version (D_ModuleInfo) {
+        version = sut_execution_enabled;
+    } else {
+        enum ERR_MSG = `Compiling with version identifier 'sut' requires D_ModuleInfo`;
+        static assert (false, ERR_MSG);
+    }
+}
 
-    static import sut.runtime;
+
+
+version (sut_execution_enabled) {
 
     shared static this () {
-        import sut.runner: customUnitTestRunner;
+        static import sut.runner;
         import core.runtime: Runtime;
         if (!handleArguments(Runtime.args())) {
-            sut.runtime.Runtime.exitFlag = true;
+            sut.runner.Runtime.exitFlag = true;
         }
-        // When Runtime.exitFlag is true, we exit from the unit test runner
-        // because we cannot exit here.
-        Runtime.extendedModuleUnitTester = &customUnitTestRunner;
+        // When Runtime.exitFlag is true, we exit from the custom unit test
+        // runner because we cannot exit here.
+        Runtime.extendedModuleUnitTester = &sut.runner.sutRunner;
     }
 
 
@@ -74,27 +104,27 @@ version (sut) {
     bool
     handleArguments (const string[] arg)
     {
-        import sut.config: config;
+        import sut.list: collect;
         import std.getopt:
             getoptConfig = config,
             defaultGetoptPrinter,
             getopt;
+        debug import std.stdio;
 
         // Necessary to declare a local array variable because
         // getopt function accepts only reference arrays.
         string[] arguments = arg.dup;
-        // Temporary variable for filenames of passed arguments
         string[] files;
         auto helpInfo = getopt(
             arguments,
             getoptConfig.passThrough,
-            "config|c", "configuration file (../build/unittest.conf)", &files);
+            "config|c", "configuration file (../bin/unittest.conf)", &files);
         if (helpInfo.helpWanted) {
             defaultGetoptPrinter("SUT command-line options:", helpInfo.options);
             return false;
         }
-        // Send out the acquired filenames
-        auto filesProcessed = config.collect(files);
+        debug writeln("Files: ", files);
+        auto filesProcessed = collect(files);
         return true;
     }
 }
