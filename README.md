@@ -7,156 +7,57 @@ It allows per module and per unit test block execution.
 
 ## Rationale
 
-The default unit test execution in D is all or nothing.
-That means all unit tests are executed every time.
-It is designed to ensure that all tests pass.
-What it does not address is the isolated testing of individual unit tests and
-modules.
+Unit testing in the D programming language executes all defined unit
+tests when the `-unittest` options is passed to the compiler.
+It is designed to ensure that all unit tests pass when unit testing.
 
-It is common that modifications, enhancements, refactorings, or
-reimplementations of a portion of a code base require the testing of only the
-concerned portion.
-At this point, the programmer is not yet concerned about integration.
-That comes after when the portion of the code has been tested to execute as
-expected.
-This is the missing part--a unit testing capability supporting the bottom-up
-approach.
-
-I believe that allowing execution of specific tests complements the all or
-nothing approach by providing a middle ground.
-It will aid the programmer to focus on the detail at hand.
-The programmer can try and test the concerned parts as often as necessary,
-without being untimely bothered by broken tests from other parts of the code
-base.
-
-Also, being able to test a unit in isolation saves clock cycles and, therefore,
-time.
-The faster turn around may become an encouragement to do more experiments, craft
-better tests, and be more productive.
-
-This library is an attempt to provide more unit testing flexibility and
-capability that is absent from the default unit test execution.
-
+The compiler does not have the option to selectively run unit tests.
+It is common during modifications, enhancements, refactorings, or
+reimplementations of portions of a code base to be able to test something in
+isolation before being concerend with integration.
+The bottom-up approach, I believe, is a missing capability of unit testing in D
+and this library is an attempt to provide that capability.
 
 
 
 ## Features
 
-The library provides the ability to run specific tests during development,
-maintenance, and enhancement efforts.
-It also allows the programmer to opt-out and revert to the default unit test
-execution if necessary.
+The library provides the following and still allows the programmer to opt-out
+and revert to the default unit test execution behavior.
 
 * __Unit Test Block Execution__
 
-  The programmer can choose to execute only a specific unit test block or a
-  group of them that is of immediate concern.
-  This helps the programmer to focus on the 'unit' without being bothered by
-  other unit tests that may, at this point, fail.
+  Execute only a specific unit test block or a group of unit tests.
 
-* __Module Unit Test Execution__
+* __Module Unit Test Execution and Exclusion__
 
-  The programmer can also choose to execute all unit tests in a single module,
-  also without being flooded with failed tests from other modules.
-
-* __Module Exclusion__
-
-  In contrast with the _Module Unit Test Execution_, the library also allows
-  modules to be excluded from unit test execution.
-
-  This feature is a consequence of determining which modules do not have unit
-  tests.
-  Packages that simply declare public imports are candidates for this.
-
-* __Detailed Reporting__
-
-  The library provides a detailed report of the unit test execution.
-
-  * Reports the line number and _name_ of executed unit test blocks;
-  * Summary of successful and failed unit test blocks per module;
-  * Summary of all successful and failed unit test blocks;
-  * List of modules with unit tests;
-  * List of modules with unit tests but without `sut` prologue code;
-  * List of modules without unit tests;
-  * List of excluded modules from unit testing.
-
-
-
-## Compiler Compatibility
-
-The following compilers have been tested under GNU/Linux only.
-I do not currently have a Microsoft Windows machine to test it.
-
-The oldest compiler used to execute the tests
-is version 2.090.0.
-It is not known what earlier versions can successfully compile and use the
-library.
-
-Latest versions of compilers to successfully compile and use the library are:
-* [DMD 2.104.2](https://dlang.org/download.html#dmd)
-* [LDC 1.33.0](https://github.com/ldc-developers/ldc/releases/tag/v1.33.0)
-
-
-
-## Limitations
-
-* Cannot be used with `-betterC`.
-  The library cannot be used if D source is compiled without `ModuleInfo`.
-  That includes source codes being compiled with the `-betterC` flag since the
-  flag disables the use of `ModuleInfo`.
-* Cannot be used with `@nogc`.
-* Cannot be used with `nothrow`.
-* Cannot be used with `pure`.
+  Execute all unit tests in a module.
+  In contrast, the library also allows modules to be excluded from unit test
+  execution.
 
 
 
 ## Usage
 
-There are two ways to use the `sut` module: _basic_ and _selective unit testing_.
-
-__Basic Usage__
-
-* incorporate the module into your project;
-* use a _Wrapper Module_;
-* statically import the _Wrapper Module_;
-* add _user-defined attributes_ before unit test blocks;
-* add unit test block prologue code at the top of unit test blocks;
-* pass the unit testing flag (--unittest) and the version identifier `sut`
-  to the compiler.
-
-Unit tests without _user-defined attributes_ or unit test block prologue code
-will still execute but they will not be reported in the console output since
-the library uses the prologue code to collect information for reporting.
-
-__Selective Unit Testing__
-
-* to select unit test blocks to execute, create/edit a _unit test configuration
-  file_ and add unit test block entries;
-* to select modules to execute, create/edit a _unit test configuration file_
-  and add module entries;
-* pass the configuration file as command-line argument to the test program.
 
 
+### Incorporating the SUT Module
 
-### Incorporating `sut` Module
+Use the `-I` compiler option and pass the path to the `sut` source code.
 
-To use the module, the compiler must be able to _see_ its source code.
-This could be done using the `-I` compiler option for `dmd` or `ldc` and
-passing the path to the `sut` source code.
-
-The following shows an example of a project directory.
-It shows where the `sut` module may be placed.
+The following directory diagram is an example showing where the `sut`
+module may be located.
 
 ~~~
 ...
 `-- project
     |-- ...
     |-- build
-    |   `-- sut.conf        // selective unit testing configuraiton file
+    |   +-- sut.conf        // selective unit testing configuraiton file
     |-- extern
-    |   |-- sut             // this module
+    |   |-- sut             // <----- this module
     |   `-- ...             // other external dependencies
-    `-- src                 // <<<<< we are here
+    `-- src                 // <----- we are here
         |-- main.d
         |-- module_a.d
         |-- module_b.d
@@ -164,7 +65,19 @@ It shows where the `sut` module may be placed.
         `-- ...
 ~~~
 
-To compile the example project above, the following command may be used.
+
+
+### Version Identifier
+
+The _version identifier_ `sut` must be passed to the compiler.
+
+~~~
+$ dmd -version=sut
+$ ldc --d-version=sut
+$ ldmd2 -version=sut
+~~~
+
+Here is a command-line example of how the above may be compiled.
 
 ~~~
 dmd                                 \
@@ -180,7 +93,74 @@ dmd                                 \
 
 
 
-### SUT Wrapper Module
+### Code Changes
+
+The code controls whether to continue execution or return early from the block
+along and collects information about the unit test block.
+It is therefore necessary that it be in the first line inside the unit test
+block.
+
+The code looks for a
+[`user-defined attribute`](https://dlang.org/spec/attribute.html#uda)
+(UDA) for the unit test block and uses the first UDA string as the _unit test
+block name_.
+If it cannot find one, it uses the compiler-generated unit test block identifier.
+It is advised to use a UDA string to allow better identification of unit test
+blocks.
+See the _Unit Test Configuration File_ section below on how unit test UDA can
+be used to filter unit test execution.
+
+~~~{escapechar=!}
+...
+version (unittest) {                // unit test conditional compilation block
+    static import sut_wrapper;
+}
+...
+@("some name")                      // unit test block names
+unittest {
+    mixin (sut_wrapper.prologue);   // unit test prologue
+    ...
+}
+~~~
+
+
+
+### SUT Configuration File
+
+The _unit test configuration file_ contains all unit test blocks and modules
+to be executed and those that are to be skipped.
+
+The _unit test configuration file_ must follow these formatting rules:
+
+* one item per line;
+* empty lines and duplicates are ignored;
+* unit test block names to be executed are prefixed with `utb:`;
+* unit test block names to be skipped are prefixed with `xutb:`;
+* module names to be executed are prefixed with `utm:`;
+* module names to be skipped are prefixed with `xutm:`;
+
+
+
+~~~
+utb: <unit_test_block_name>
+xutb: <unit_test_block_name>
+utm: <module_name>
+xutm: <module_name>
+~~~
+
+One or more _unit test configuration files_ may be passed using the command-line
+option `-c` or `config`:
+
+~~~
+-c<file>
+-c <file>
+--config=<file>
+--config <file>
+~~~
+
+
+
+### Create the SUT Wrapper Module
 
 The _wrapper module_ conditionally enables or disables the use of the library.
 The library is enabled by the use of the version identifier `sut`.
@@ -196,7 +176,7 @@ module sut_wrapper;
 version (sut) {
     static if (__traits(compiles, { import sut; })) {
         /**
-         * Conditionally compile-in the `sut` module if it is visible in
+         * Conditionally compile-in the 'sut' module if it is visible in
          * the client code. Otherwise, it does nothing.
          */
         pragma (msg, "Using selective unit testing module.");
@@ -205,175 +185,16 @@ version (sut) {
         /**
          * Unit test block prologue code mixed-in from unit test blocks.
          */
-        enum prologue=`mixin (sut_wrapper.unitTestBlockPrologue);`;
-        enum exclude=`mixin (sut_wrapper.excludeModule);`;
+        enum prologue='mixin (sut_wrapper.unitTestBlockPrologue);';
     } else {
         pragma (msg, "Version identifier 'sut' defined but 'sut' module not found.");
         enum prologue="";
-        enum exclude="";
     }
 } else {
     pragma (msg, "Using default unit test runner.");
     enum prologue="";
-    enum exclude="";
 }
 ~~~
-
-When using a wrapper module, calls to `unitTestBlockPrologue` and
-`excludeModule` are qualified with the _wrapper module_ name.
-This is because the client code imports the _wrapper module_ statically.
-See the following _Functions_ section.
-
-~~~d
-module sut_wrapper;
-...
-enum prologue=`mixin (sut_wrapper.unitTestBlockPrologue);`;
-enum exclude=`mixin (sut_wrapper.excludeModule);`;
-~~~
-
-It is possible not to statically import the _wrapper module_ but doing so may
-lead to possible name conflicts.
-It is therefore advised to follow the safer path and use `static import`.
-
-
-
-### Functions
-
-The `sut` module provides the following functions to be used in a
-[`mixin`](https://dlang.org/spec/statement.html#mixin-statement) statement:
-
-* unitTestBlockPrologue
-* excludeModule
-
-The client code statically imports the _wrapper module_ as in the following:
-
-~~~d
-version (unittest) {
-    static import sut_wrapper;
-}
-~~~
-
-
-
-#### unitTestBlockPrologue
-
-The code controls whether to continue execution or return early from the block
-along and collects information about the unit test block.
-It is therefore necessary that it be in the first line inside the unit test
-block.
-
-The code looks for a
-[`user-defined attribute`](https://dlang.org/spec/attribute.html#uda)
-(UDA) for the unit test block and uses the first UDA string as the _unit test
-block name_.
-If it cannot find one, it uses the compiler-generated unit test block identifier.
-It is advised to use a UDA string to allow better identification of unit test
-blocks when using _selective unit test block_ execution.
-See the _Unit Test Configuration File_ section below on how to use this feature.
-
-~~~d
-@("some name")
-unittest {
-    mixin (sut_wrapper.prologue);
-    ...
-}
-~~~
-
-
-
-#### excludeModule
-
-Adds the module name to an exclusion list.
-The unit test runner skips execution of the module unit tests if it finds the
-module name in the exclusion list.
-
-It is intended to be used at the top of the module possibly before or after import declarations.
-
-~~~d
-version (unittest) {
-    static import sut_wrapper;
-    mixin (sut_wrapper.exclude);
-}
-~~~
-
-
-
-### Version Identifier
-
-To use the library, the version identifier `sut` must be passed to the compiler.
-It is used by the `sut` module for conditional compilation and static checks.
-
-~~~
-$ dmd -version=sut
-$ ldc --d-version=sut
-$ ldmd2 -version=sut
-~~~
-
-
-
-### Unit Test Configuration File
-
-The _unit test configuration file_ contains all unit test block and module
-names to be executed.
-They are then placed in an execution list.
-When the unit test runner determines that a module or a unit test block is
-found in the execution list, then they are executed.
-Otherwise, they are skipped.
-
-The _unit test configuration file_ must follows these formatting rules:
-
-* one item per line
-* unit test block names are prefixed with `utb:`
-* unit test block names can contain space
-* module names are prefixed with `utm:`
-* module names cannot contain spaces
-* empty lines and duplicates are ignored
-
-~~~
-utb:<unit_test_block_name>
-utb:...
-utm:<module_name>
-utm:...
-~~~
-
-One or more _unit test configuration files_ can be passed to the test program
-via command-line argument using `-c` or `config` options:
-
-~~~
--c<file>
--c <file>
---config=<file>
---config <file>
-~~~
-
-
-
-#### Unit Test Block Names
-
-Unit test block names are checked in the execution list and executed when it
-is found.
-
-An example using the following _unit test block names_.
-
-~~~d
-@("func one")
-...
-@("func two")
-...
-@("func three")
-~~~
-
-If the _unit test configuration file_ contains `utb:func t`, then the unit
-test blocks for `@("func two")` and `@("func three")` are executed.
-The unit test block for `@("func one")` will be 'skipped'.
-
-
-
-#### Module Names
-
-The same with the _Unit Test Block Names_, modules are executed conditionally.
-The all unit tests of a module is executed when the module name is present in
-the execution list.
 
 
 
@@ -398,7 +219,7 @@ The following are the contents of each file starting with the main module.
 
 * __test.d__
 
-  ~~~d
+  ~~~{escapechar=!}
   module test.with_wrapper.test;
 
   import test.with_wrapper.mul;
@@ -430,7 +251,7 @@ The following are the contents of each file starting with the main module.
 
 * __mul.d__
 
-  ~~~d
+  ~~~{escapechar=!}
   module test.with_wrapper.mul;
 
   version (unittest) {
@@ -449,7 +270,7 @@ The following are the contents of each file starting with the main module.
 
 * __excluded.d__
 
-  ~~~d
+  ~~~{escapechar=!}
   module test.with_wrapper.excluded;
 
   version (unittest) {
@@ -469,7 +290,7 @@ The following are the contents of each file starting with the main module.
 
 * __no_unittest.d__
 
-  ~~~d
+  ~~~
   /**
    * Module without unit test.
    */
@@ -478,7 +299,7 @@ The following are the contents of each file starting with the main module.
 
 * __no_prologue.d__
 
-  ~~~d
+  ~~~
   module test.with_wrapper.no_prologue;
 
   size_t square (const uint arg) {
@@ -691,6 +512,34 @@ You can download or clone the repository and run the tests with the command
         |-- with_wrapper        // test of using a 'wrapper' module
         `-- compile.sh          // compile script
 ~~~
+
+
+
+## Compiler Compatibility
+
+The following compilers have been tested under GNU/Linux only.
+I do not currently have a Microsoft Windows machine to test it.
+
+The oldest compiler used to execute the unit tests in this library is version
+2.090.0.
+It is not known what earlier versions can successfully compile and use the
+library.
+
+Latest versions of compilers to successfully compile and use the library are:
+* [DMD 2.105.3](https://dlang.org/download.html#dmd)
+* [LDC 1.33.0](https://github.com/ldc-developers/ldc/releases/tag/v1.33.0)
+
+
+
+## Limitations
+
+* Cannot be used with `-betterC`.
+  The library cannot be used if D source is compiled without `ModuleInfo`.
+  That includes source codes being compiled with the `-betterC` flag since the
+  flag disables the use of `ModuleInfo`.
+* Cannot be used with `@nogc`.
+* Cannot be used with `nothrow`.
+* Cannot be used with `pure`.
 
 
 
