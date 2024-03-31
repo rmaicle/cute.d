@@ -51,10 +51,12 @@
 
 module sut;
 
-public import sut.mixins:
-    prologueBlock,
-    getUnitTestName,
-    executeBlock;
+/**
+ * During compilation, the calling routine must be able to resolve
+ * references to the mixin strings thus the mixins module is being
+ * statically imported.
+ */
+public static import sut.mixins;
 public import sut.stats: stat;
 
 
