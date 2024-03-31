@@ -1,22 +1,22 @@
 # Selective Unit Testing
 
-Unit testing library for selective unit test execution of D programs.
-It allows per module and per unit test block execution.
+A library for selective unit test execution; allows per unit test block and per
+module execution.
 
 
 
 ## Rationale
 
-Unit testing in the D programming language executes all defined unit
-tests when the `-unittest` options is passed to the compiler.
-It is designed to ensure that all unit tests pass when unit testing.
+The default unit testing behaviour implemented in D compilers is to execute all
+unit tests.
+It is designed to ensure that all unit tests pass; it is all or nothing.
 
-The compiler does not have the option to selectively run unit tests.
-It is common during modifications, enhancements, refactorings, or
-reimplementations of portions of a code base to be able to test something in
-isolation before being concerend with integration.
-The bottom-up approach, I believe, is a missing capability of unit testing in D
-and this library is an attempt to provide that capability.
+Although it is possible to isolate a piece of code for testing, I feel that it
+is sometimes a bit of an extra work specially when in the middle of
+enhancements, refactorings or reimplementations of portions of code.
+
+This library allows a piece of code to be tested in-place without being
+concerned with non-related parts of the code base.
 
 
 
@@ -27,13 +27,12 @@ and revert to the default unit test execution behavior.
 
 * __Unit Test Block Execution__
 
-  Execute only a specific unit test block or a group of unit tests.
+  Execute only a specific unit test block or a group of unit test blocks.
 
 * __Module Unit Test Execution and Exclusion__
 
-  Execute all unit tests in a module.
-  In contrast, the library also allows modules to be excluded from unit test
-  execution.
+  Execute all unit test blocks in a module or exclude all unit test blocks
+  in a module.
 
 
 
@@ -95,20 +94,7 @@ dmd                                 \
 
 ### Code Changes
 
-The code controls whether to continue execution or return early from the block
-along and collects information about the unit test block.
-It is therefore necessary that it be in the first line inside the unit test
-block.
-
-The code looks for a
-[`user-defined attribute`](https://dlang.org/spec/attribute.html#uda)
-(UDA) for the unit test block and uses the first UDA string as the _unit test
-block name_.
-If it cannot find one, it uses the compiler-generated unit test block identifier.
-It is advised to use a UDA string to allow better identification of unit test
-blocks.
-See the _Unit Test Configuration File_ section below on how unit test UDA can
-be used to filter unit test execution.
+The wrapper module must be imported.
 
 ~~~{escapechar=!}
 ...
@@ -116,6 +102,16 @@ version (unittest) {                // unit test conditional compilation block
     static import sut_wrapper;
 }
 ...
+~~~
+
+Additionally, unit test blocks are required to be _named_ using
+[`user-defined attribute`](https://dlang.org/spec/attribute.html#uda) (UDA).
+The first UDA string will be used as the name for the unit test block.
+This name can be used later to _filter_ execution.
+See the _Unit Test Configuration File_ section below on how unit test UDA can
+be used to filter unit test execution.
+
+~~~{escapechar=!}
 @("some name")                      // unit test block names
 unittest {
     mixin (sut_wrapper.prologue);   // unit test prologue
@@ -125,9 +121,9 @@ unittest {
 
 
 
-### SUT Configuration File
+### Unit Test Configuration File
 
-The _unit test configuration file_ contains all unit test blocks and modules
+The _unit test configuration file_ contains the list of unit test blocks and modules
 to be executed and those that are to be skipped.
 
 The _unit test configuration file_ must follow these formatting rules:
@@ -149,7 +145,7 @@ xutm: <module_name>
 ~~~
 
 One or more _unit test configuration files_ may be passed using the command-line
-option `-c` or `config`:
+option `--config` or `-c`:
 
 ~~~
 -c<file>
