@@ -360,10 +360,10 @@ unittest {
         "  as",
         "  'yyyymmdd-hhmmss'"
     ];
-    debug (verbose) writeln("Wrapping at column: ", 43);
-    debug (verbose) writefln("%s\n%s", RulerOnes, RulerTens);
+    version (sut) debug (verbose) writeln("Wrapping at column: ", 43);
+    version (sut) debug (verbose) writefln("%s\n%s", RulerOnes, RulerTens);
     const result = wrapnl(input, 43, "  ", "  ");
-    debug (verbose) writeln(result);
+    version (sut) debug (verbose) writeln(result);
     assert (result == Result.join(NEWLINE));
 }
 @("wrapnl: append to line")
@@ -383,10 +383,10 @@ unittest {
         "  string; default version string is date",
         "  and time as 'yyyymmdd-hhmmss'"
     ];
-    debug (verbose) writeln("Wrapping at column: ", 43);
-    debug (verbose) writefln("%s\n%s", RulerOnes, RulerTens);
+    version (sut) debug (verbose) writeln("Wrapping at column: ", 43);
+    version (sut) debug (verbose) writefln("%s\n%s", RulerOnes, RulerTens);
     const result = wrapnl(input, 43, "  ", "  ");
-    debug (verbose) writeln(result);
+    version (sut) debug (verbose) writeln(result);
     assert (result == Result.join(NEWLINE));
 }
 @("wrapnl: first word")
@@ -407,10 +407,10 @@ unittest {
         "  string is date and time as",
         "  'yyyymmdd-hhmmss'"
     ];
-    debug (verbose) writeln("Wrapping at column: ", 43);
-    debug (verbose) writefln("%s\n%s", RulerOnes, RulerTens);
+    version (sut) debug (verbose) writeln("Wrapping at column: ", 43);
+    version (sut) debug (verbose) writefln("%s\n%s", RulerOnes, RulerTens);
     const result = wrapnl(input, 43, "  ", "  ");
-    debug (verbose) writeln(result);
+    version (sut) debug (verbose) writeln(result);
     assert (result == Result.join(NEWLINE));
 }
 @("wrapnl: last word")
@@ -430,10 +430,10 @@ unittest {
         "  default version string is date and time",
         "  as 'yyyymmdd-hhmmss'"
     ];
-    debug (verbose) writeln("Wrapping at column: ", 43);
-    debug (verbose) writefln("%s\n%s", RulerOnes, RulerTens);
+    version (sut) debug (verbose) writeln("Wrapping at column: ", 43);
+    version (sut) debug (verbose) writefln("%s\n%s", RulerOnes, RulerTens);
     const result = wrapnl(input, 43, "  ", "  ");
-    debug (verbose) writeln(result);
+    version (sut) debug (verbose) writeln(result);
     assert (result == Result.join(NEWLINE));
 }
 @("wrapnl: multiple new lines")
@@ -452,10 +452,10 @@ unittest {
         "  This is the rest of the text. It must be",
         "  long so it should wrap to the next line."
     ];
-    debug (verbose) writeln("Wrapping at column: ", 43);
-    debug (verbose) writefln("%s\n%s", RulerOnes, RulerTens);
+    version (sut) debug (verbose) writeln("Wrapping at column: ", 43);
+    version (sut) debug (verbose) writefln("%s\n%s", RulerOnes, RulerTens);
     const result = wrapnl(input, 43, string.init, "  ");
-    debug (verbose) writeln(result);
-    debug (verbose) writeln(Result.join(NEWLINE));
+    version (sut) debug (verbose) writeln(result);
+    version (sut) debug (verbose) writeln(Result.join(NEWLINE));
     assert (result == Result.join(NEWLINE));
 }
