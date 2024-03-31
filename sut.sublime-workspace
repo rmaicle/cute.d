@@ -1,0 +1,780 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Hel",
+				"HelpLineLength"
+			],
+			[
+				"Callback",
+				"CallbackMaxArgs"
+			],
+			[
+				"isReq",
+				"isArgumentRequired"
+			],
+			[
+				"is",
+				"isArgumentRequired"
+			],
+			[
+				"has",
+				"hasDefaultValue"
+			],
+			[
+				"config",
+				"configState"
+			],
+			[
+				"get",
+				"getRepString"
+			],
+			[
+				"import",
+				"importDirectories"
+			],
+			[
+				"isvalid",
+				"isValidShortVariantDefinition"
+			],
+			[
+				"isValid",
+				"isValidSyntax"
+			],
+			[
+				"isNo",
+				"isNoArgumentShowHelp"
+			],
+			[
+				"iss",
+				"isSomeChar"
+			],
+			[
+				"Nullable",
+				"NullableTypeDef"
+			],
+			[
+				"compi",
+				"compilerExists"
+			],
+			[
+				"output",
+				"outputFilename"
+			],
+			[
+				"unit",
+				"unitTestCounter"
+			],
+			[
+				"modulesWIth",
+				"modulesWithPrologue"
+			],
+			[
+				"sans-",
+				"sans-regular"
+			],
+			[
+				"BUILD_",
+				"BUILD_FULL_PATH"
+			],
+			[
+				"arg_audio_bit_",
+				"arg_audio_bit_depth"
+			],
+			[
+				"arg_audio_",
+				"arg_audio_lufs"
+			],
+			[
+				"build",
+				"buildtype"
+			],
+			[
+				"Librar",
+				"LibraryType"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/sut/log.d",
+			"settings":
+			{
+				"buffer_size": 5005,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					21,
+					3,
+					"cut",
+					null,
+					"AwAAABoJAAAAAAAAGgkAAAAAAABXAAAAICAgICAgICAvL3ByaW50U3VtbWFyeVdpdGhVbml0VGVzdHMoY291bnRlci5tb2R1bGVzV2l0aCwgY291bnRlci5tb2R1bGVzV2l0aFByb2xvZ3VlKTsKGgkAAAAAAAAaCQAAAAAAAEAAAAAgICAgICAgIC8vcHJpbnRTdW1tYXJ5V2l0aG91dFVuaXRUZXN0cyhjb3VudGVyLm1vZHVsZXNXaXRob3V0KTsKGgkAAAAAAAAaCQAAAAAAADYAAAAgICAgICAgIC8vcHJpbnRTdW1tYXJ5RXhjbHVkZWRVbml0VGVzdHMoZXhjbHVkZUxpc3QpOwo",
+					"AQAAAAAAAAABAAAAGgkAAAAAAAAaCQAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					27,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AgAAAB4JAAAAAAAAIAkAAAAAAAAAAAAA6wgAAAAAAADtCAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA5wgAAAAAAAAfCQAAAAAAAP///////+9/"
+				],
+				[
+					29,
+					10,
+					"cut",
+					null,
+					"CgAAACUJAAAAAAAAJQkAAAAAAABHAAAAICAgIC8vcHJpbnRmKCIlcyAlcyVsbHUgcGFzc2VkJXMsICVzJWxsdSBmYWlsZWQlcywgJWxsdSBmb3VuZCAtICVzXG4iLAolCQAAAAAAACUJAAAAAAAAHgAAACAgICAvLyAgICBMYWJlbC5TdW1tYXJ5LnRvc3osCiUJAAAAAAAAJQkAAAAAAAAdAAAAICAgIC8vICAgIHBhc3NpbmdDb2xvci50b3N6LAolCQAAAAAAACUJAAAAAAAAFwAAACAgICAvLyAgICBlc2MucGFzc2luZywKJQkAAAAAAAAlCQAAAAAAABwAAAAgICAgLy8gICAgQ29sb3IuUmVzZXQudG9zeiwKJQkAAAAAAAAlCQAAAAAAAB0AAAAgICAgLy8gICAgZmFpbGluZ0NvbG9yLnRvc3osCiUJAAAAAAAAJQkAAAAAAAAXAAAAICAgIC8vICAgIGVzYy5mYWlsaW5nLAolCQAAAAAAACUJAAAAAAAAHAAAACAgICAvLyAgICBDb2xvci5SZXNldC50b3N6LAolCQAAAAAAACUJAAAAAAAAFQAAACAgICAvLyAgICBlc2MudG90YWwsCiUJAAAAAAAAJQkAAAAAAAAlAAAAICAgIC8vICAgIGR1cmF0aW9uLnRvU3RyaW5nKCkudG9zeik7Cg",
+					"AQAAAAAAAAABAAAAJQkAAAAAAAAlCQAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					40,
+					1,
+					"cut",
+					null,
+					"AQAAAPgLAAAAAAAA+AsAAAAAAABMBgAALysKdm9pZApwcmludFN1bW1hcnkgKAogICAgY29uc3QgVW5pdFRlc3RDb3VudGVyIGNvdW50ZXIsCiAgICBjb25zdCBzdHJpbmdbXSBleGNsdWRlTGlzdCwKICAgIGNvbnN0IE1vbm9UaW1lIGZyb20sCiAgICBjb25zdCBNb25vVGltZSB0bwopIHsKICAgIGltcG9ydCBzdGQuc3RyaW5nOiBsZWZ0SnVzdGlmeTsKICAgIGltcG9ydCBzdGQudW5pOiB0b0xvd2VyOwogICAgaW1wb3J0IHN0ZC5mb3JtYXQ6IGZvcm1hdDsKCiAgICBjb25zdCBwYXNzQ29sb3IgPSBjb3VudGVyLmFsbC5pc0FsbFBhc3NpbmcoKSA/IENvbG9yLklHcmVlbiA6IENvbG9yLlllbGxvdyA7CiAgICBjb25zdCBmYWlsQ29sb3IgPSBjb3VudGVyLmFsbC5pc05vbmVGYWlsaW5nKCkgPyBDb2xvci5JR3JlZW46IENvbG9yLklSZWQgOwoKICAgIGVudW0gQmFyTGluZSA9IGxlZnRKdXN0aWZ5KHN0cmluZy5pbml0LCA1MCwgJz0nKTsKICAgIGVudW0gU3VtbWFyeVN0YXJ0ID0gZm9ybWF0ISIlcyAlcyIoY2FzdCAoc3RyaW5nKSBMYWJlbC5CbGFuaywgQmFyTGluZSk7CgogICAgaWYgKGdldEV4ZWN1dGlvbk1vZGUoKSA9PSBFeGVjdXRpb25Nb2RlLkFsbCkgewogICAgICAgIHByaW50KCIlc1xuIiwgU3VtbWFyeVN0YXJ0LnRvc3opOwogICAgICAgIHByaW50U3VtbWFyeVdpdGhVbml0VGVzdHMoY291bnRlci5tb2R1bGVzV2l0aCwgY291bnRlci5tb2R1bGVzV2l0aFByb2xvZ3VlKTsKICAgICAgICBwcmludFN1bW1hcnlXaXRob3V0VW5pdFRlc3RzKGNvdW50ZXIubW9kdWxlc1dpdGhvdXQpOwogICAgICAgIHByaW50U3VtbWFyeUV4Y2x1ZGVkVW5pdFRlc3RzKGV4Y2x1ZGVMaXN0KTsKICAgIH0KCiAgICBwcmludCgiJXNcbiIsIFN1bW1hcnlTdGFydC50b3N6KTsKCiAgICBwcmludCgiJXMgJWxsdSBmb3VuZDogJXMlbGx1IHBhc3NlZCVzLCAlcyVsbHUgZmFpbGVkJXNcbiIsCiAgICAgICAgTGFiZWwuU3VtbWFyeS50b3N6LAogICAgICAgIGNvdW50ZXIuYWxsLnRvdGFsLAogICAgICAgIHBhc3NDb2xvci50b3N6LCBjb3VudGVyLmFsbC5wYXNzaW5nLCBDb2xvci5SZXNldC50b3N6LAogICAgICAgIGZhaWxDb2xvci50b3N6LCBjb3VudGVyLmFsbC5mYWlsaW5nLCBDb2xvci5SZXNldC50b3N6KTsKICAgIGF1dG8gYmxhbmsgPSBMYWJlbC5CbGFuay50b3N6OwogICAgcHJpbnQoIiVzICVsbHUgJXNcbiIsCiAgICAgICAgYmxhbmssCiAgICAgICAgY291bnRlci5tb2R1bGVzV2l0aC5sZW5ndGgsCiAgICAgICAgTW9kdWxlLldpdGhVbml0VGVzdC50b0xvd2VyLnRvc3opOwogICAgcHJpbnQoIiVzICVsbHUgJXNcbiIsCiAgICAgICAgYmxhbmssCiAgICAgICAgY291bnRlci5tb2R1bGVzV2l0aG91dC5sZW5ndGgsCiAgICAgICAgTW9kdWxlLldpdGhvdXRVbml0VGVzdC50b0xvd2VyLnRvc3opOwogICAgcHJpbnQoIiVzICVsbHUgJXNcbiIsCiAgICAgICAgYmxhbmssCiAgICAgICAgZXhjbHVkZUxpc3QubGVuZ3RoLAogICAgICAgIE1vZHVsZS5FeGNsdWRlZC50b0xvd2VyLnRvc3opOwoKICAgIHByaW50KCIlcyAlc1xuIiwgTGFiZWwuRWxhcHNlZC50b3N6LCBlbGFwc2VUaW1lU3RyaW5nKGZyb20sIHRvKS50b3N6KTsKICAgIHByaW50RGF0ZVRpbWUoTGFiZWwuRW5kKTsKfQorLw",
+					"AQAAAAAAAAABAAAA+AsAAAAAAABEEgAAAAAAAP///////+9/"
+				],
+				[
+					48,
+					4,
+					"cut",
+					null,
+					"BAAAAPgLAAAAAAAA+AsAAAAAAAABAAAACvgLAAAAAAAA+AsAAAAAAAABAAAACvgLAAAAAAAA+AsAAAAAAAABAAAACvgLAAAAAAAA+AsAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAA+AsAAAAAAAD4CwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					76,
+					4,
+					"right_delete",
+					null,
+					"BAAAAIsTAAAAAAAAixMAAAAAAAABAAAACosTAAAAAAAAixMAAAAAAAABAAAACosTAAAAAAAAixMAAAAAAAABAAAACosTAAAAAAAAixMAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAixMAAAAAAACLEwAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					112,
+					1,
+					"insert",
+					{
+						"characters": "//"
+					},
+					"AgAAABgHAAAAAAAAGQcAAAAAAAAAAAAAGQcAAAAAAAAaBwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGAcAAAAAAAAYBwAAAAAAAAAAAAAAAEJA"
+				]
+			]
+		},
+		{
+			"file": "build/compile.sh",
+			"settings":
+			{
+				"buffer_size": 2740,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": " >"
+					},
+					"AgAAAH4KAAAAAAAAfwoAAAAAAAAAAAAAfwoAAAAAAACACgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAfgoAAAAAAAB+CgAAAAAAAP///////+9/"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAIAKAAAAAAAAgQoAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAgAoAAAAAAACACgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					23,
+					1,
+					"paste",
+					null,
+					"AgAAAH8KAAAAAAAAigoAAAAAAAAAAAAAigoAAAAAAACKCgAAAAAAAAIAAAA+IA",
+					"AQAAAAAAAAABAAAAgQoAAAAAAAB/CgAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
+	],
+	"build_system": "Packages/D/D.sublime-build",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"editth",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"edit color",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"theme",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"install pack",
+				"Package Control: Install Package"
+			],
+			[
+				"packager",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 354.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/build",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/list",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/runner",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/stats"
+	],
+	"file_history":
+	[
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/stats/exec_stat_counter.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/stats/module_stat.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/stats/package.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/stats/stat.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/stats/unittest_stat.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/runner/log.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/runner/custom.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/list/container.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/list/package.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/list/config.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/util.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/package.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/app-cbd.dlang/src/cbd/handler/argument.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/build/compile.sh",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/log.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/mixins.d",
+		"/home/ricky/x",
+		"/home/ricky/projects/codespheare/dev.2023/src/app-dbuilder.sh/README.md",
+		"/home/ricky/projects/codespheare/dev.2023/src/app-cbd.dlang/src/cbd/compiler/base.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/app-cbd.dlang/src/cbd/compiler/clang.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/app-cbd.dlang/src/cbd/compiler/config.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/app-cbd.dlang/src/cbd/compiler/options.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/app-cbd.dlang/src/cbd/util/typedef.plain.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/app-cbd.dlang/src/cbd/option/package.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/app-cbd.dlang/src/cbd/option/type/base.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/app-cbd.dlang/src/cbd/main.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/app-cbd.dlang/src/unittesting/sut.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/README.md",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/extern/build-x/src/compile",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/extern/build-x/README.md",
+		"/home/ricky/Documents/internal/accounts-20230926.txt",
+		"/home/ricky/Videos/.others/video_cut_guide.txt",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/build/unittest.conf",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/build/compile.conf",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/test/selective_module/excluded.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/config.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/execution.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/runner.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/test/with_wrapper/test.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/runtime.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src/sut/exclude.d",
+		"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/archive.sh",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/sut/sut.sublime-project",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/sut/README.md",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/main.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/handler/argument.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/compiler/config.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/compiler/options.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/compiler/base.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/compiler/dmd.d",
+		"/home/spherehead/x",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/build/src/compile",
+		"/home/spherehead/dlang/dmd-2.096.1/src/phobos/std/array.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/compiler/package.d",
+		"/mnt/work/projects/codespheare/dev/lib/internal.d.dev/cbd/bin/build.conf",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/option/type/build.d",
+		"/home/spherehead/dlang/dmd-2.096.1/src/phobos/std/path.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/option/type/filename.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/option/type/package.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/option/package.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/util/option_format.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/util/typedef.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/compiler/ldc.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/option/type/compiler.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/handler/package.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/handler/config.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/nstd.d/src/exp/algorithm/split.d",
+		"/home/spherehead/dlang/dmd-2.096.1/src/phobos/std/algorithm/searching.d",
+		"/home/spherehead/.config/weechat/irc.conf",
+		"/home/spherehead/dlang/dmd-2.096.1/src/phobos/std/conv.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/handler/result.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/sut/config.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/sut/util.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/util/string/query.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/util/string/iteration.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/sut/package.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/package.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/option/type/directory.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/option/type/version_id.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/option/type/debug_id.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/handler/config_handler.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/handler/arg_handler.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/compiler/factory.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/option/text.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/exit_status.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/arg_handler.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/handler/option_handler.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/validator.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/option/properties.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/README.md",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/output/formatting.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/config.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/parse.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/parseArgs_test.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/sut/runner.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/sut/prologue.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/sut/counter.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/result.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/output/package.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/handler/extra_handler.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/exception/common.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/exception/handling.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/exception/options.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/cbd.sublime-project",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/exception/package.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/output/metadata.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/sut/execution.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/build/compile",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/build/unittest.conf",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/test/compile.sh",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/sut/wrapper.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/sut/output.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/test/test.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/traits.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/option/variants.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/option/package.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/unittesting/sut.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/sut/runtime.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/handler/conversion.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/handler/handler_arg.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/handler/handlers.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/parser/handler/package.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/util/lettercase/sensitivity.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs/util/enumeration/query.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/option/type/base.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/compiler/clang.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/compiler/gcc.d",
+		"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd/compiler/type.d"
+	],
+	"find":
+	{
+		"height": 42.0
+	},
+	"find_in_files":
+	{
+		"height": 110.0,
+		"where_history":
+		[
+			"/home/ricky/projects/codespheare/dev.2023/src/lib-sut.dlang/src,<project filters>",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src,<project filters>",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src,<project filters>",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src,<project filters>",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs,<project filters>",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src,<project filters>",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs,<project filters>",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd,<project filters>",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/sut/src/sut",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/src/cbd",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src/pargs",
+			"/mnt/work/projects/codespheare/dev/lib/internal.d.dev/cbd/extern/pargs/src",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/pargx/extern/sut/src",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/pargx/src",
+			"/home/spherehead/_work/projects/codespheare/dev/lib/internal.d.dev/pargx/extern/sut/src/sut"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Files",
+			"DIR_BIN",
+			"DIR_PROJECT",
+			"BIN_DIR",
+			"SOURCE_DIR",
+			"remove",
+			"modulesExclude",
+			"insertInPlace",
+			"insertinplace",
+			"\n    ",
+			"readConfigurations",
+			"readFiles",
+			"not found in",
+			"compileOnlyFlag",
+			"coverageFlag",
+			"filterFileExists",
+			"absolutePath",
+			"handleConfigurations",
+			"Release",
+			"CompilerID",
+			"checkFileExists",
+			"string[]",
+			"DebugIDs",
+			"filenames",
+			"toString",
+			"config",
+			"notExists",
+			"binaryFun",
+			"predFun",
+			"find(",
+			"canfind",
+			"toArray",
+			"pair",
+			"filter",
+			"isvalidfilename",
+			"result ",
+			"import",
+			"DMD",
+			"Description",
+			"clang",
+			"CompilerID",
+			"Result",
+			"help",
+			"\";",
+			"callback:",
+			"callback",
+			"NoArgumentShowHelp",
+			"ShowHelpWhenZeroArgument",
+			"isNoArgumentShowHelp",
+			"identifer",
+			"OptionNotHandled",
+			"OptionWasHandled",
+			"InvalidOptionArgumentException",
+			"invalid numeric",
+			"assertThrown",
+			"UnknownOptionException",
+			"ifThrown",
+			"ifthrown",
+			"required option not handled",
+			"version",
+			"\n    ",
+			"param_sut_unittest",
+			"flag_sut_unittest",
+			"sut",
+			"getUnitTestName",
+			"%DEFAULT",
+			"%d",
+			"DefaultPlaceHolder",
+			"%d",
+			"parseArgs:",
+			"parseArgs",
+			"State",
+			"todo",
+			"OptionNotHandled",
+			"nonoption",
+			"CompilerID.DMD",
+			"Compiler",
+			"DMD",
+			"compilerid",
+			"compiler",
+			"setOptionFormatString",
+			"Clang",
+			"handleBuildType",
+			"handleCompiler",
+			"CompilerOption",
+			"generate",
+			"elementencod",
+			"DMD.this",
+			"writeln",
+			"buildTypeDescription",
+			"BaseType",
+			"isSomeBool",
+			"isNotSomeBool",
+			"isEnum",
+			"toenumfromid",
+			"buildtype",
+			"BuildType",
+			"//",
+			"customAssertHandler",
+			"nicks",
+			"autoconnect",
+			"Nullable",
+			"get",
+			"customAssertHandler",
+			"darkbit",
+			"width",
+			"sut",
+			"@nogc",
+			"nothrow",
+			"pure",
+			"get",
+			"cast (int",
+			"writef(",
+			"unittest",
+			"455",
+			"unittest",
+			"executeBlock",
+			"zd",
+			"%z",
+			"safe",
+			"unqual",
+			"toNumeric",
+			"isnumeric",
+			"caret",
+			"background",
+			"getOutputFormattedString",
+			"getOptionFormattedString",
+			"checkInputFileExists"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"BIN_DIR",
+			"PROJECT_DIR",
+			"DIR_BIN",
+			"excludeModules",
+			"dark-bit",
+			"print(",
+			"() ~ newline",
+			"",
+			".tosz",
+			"prefix",
+			"setOutputFormatString",
+			"setOptionFormatString",
+			"getOutputFormattedString",
+			"getOptionFormattedString",
+			"getOutputFormattedString",
+			"outputFormat.getFormattedString",
+			"optionFormat.set",
+			"outputFormat",
+			"optionFormat",
+			"outputFormat.set",
+			"optionFormat.set",
+			"includeImportsFlag",
+			"TestFile",
+			"selective_module",
+			"selective_block",
+			"failing",
+			"setTotal",
+			"total",
+			"skipped",
+			"failing",
+			"passing",
+			"moduleList",
+			"isUnitTestBlockExecuted",
+			"isInModuleExecList",
+			"printModuleStart",
+			"darkbit"
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/sut/log.d",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5005,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1872,
+								1866
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/D/D.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1639.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "build/compile.sh",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2740,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2181,
+								2181
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1702.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 179.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 295.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/D/D.sublime-build",
+	"project": "sut.sublime-project",
+	"replace":
+	{
+		"height": 76.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/projects/codespheare/dev.2023/src/lib-pargs.dlang/pargs.sublime-project"
+			]
+		],
+		"width": 569.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 250.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
