@@ -99,7 +99,7 @@ The wrapper module must be imported.
 ~~~{escapechar=!}
 ...
 version (unittest) {                // unit test conditional compilation block
-    static import sut_wrapper;
+    static import <your-module>.sut_wrapper;
 }
 ...
 ~~~
@@ -112,9 +112,9 @@ See the _Unit Test Configuration File_ section below on how unit test UDA can
 be used to filter unit test execution.
 
 ~~~{escapechar=!}
-@("some name")                      // unit test block names
+@("some name")                                      // unit test block names
 unittest {
-    mixin (sut_wrapper.prologue);   // unit test prologue
+    mixin (<your-module>.sut_wrapper.prologue);     // unit test prologue
     ...
 }
 ~~~
@@ -176,7 +176,6 @@ version (sut) {
          * the client code. Otherwise, it does nothing.
          */
         pragma (msg, "Using selective unit testing module.");
-        public import sut;
 
         /**
          * Unit test block prologue code mixed-in from unit test blocks.
@@ -218,6 +217,7 @@ The following are the contents of each file starting with the main module.
   ~~~{escapechar=!}
   module test.with_wrapper.test;
 
+  import sut;
   import test.with_wrapper.mul;
   import test.with_wrapper.no_prologue;
   import test.with_wrapper.no_unittest;
@@ -250,6 +250,7 @@ The following are the contents of each file starting with the main module.
   ~~~{escapechar=!}
   module test.with_wrapper.mul;
 
+  import sut;
   version (unittest) {
       static import test.with_wrapper.sut_wrapper;        // import
   }
@@ -269,9 +270,9 @@ The following are the contents of each file starting with the main module.
   ~~~{escapechar=!}
   module test.with_wrapper.excluded;
 
+  import sut;
   version (unittest) {
       static import test.with_wrapper.sut_wrapper;        // import
-      mixin (test.with_wrapper.sut_wrapper.exclude);      // exclude module
   }
 
   int div (const int arg, const int n) {
@@ -310,7 +311,7 @@ Compile the source files using the following command:
 
 ~~~
 $ dmd                               \
-    -I=./../../                     \
+    -I=../..                        \
     -i                              \
     -main                           \
     -debug                          \
@@ -385,7 +386,7 @@ Compile the source files using the following command:
 
 ~~~
 $ dmd                               \
-    -I=./../../                     \
+    -I=../..                        \
     -i                              \
     -main                           \
     -debug                          \
@@ -446,7 +447,7 @@ Compile the source files using the following command:
 
 ~~~
 $ dmd                               \
-    -I=./../../                     \
+    -I=../..                        \
     -i                              \
     -main                           \
     -debug                          \
@@ -493,7 +494,7 @@ The repository contains different test programs that are good enough to
 demonstrate how to use this module.
 The directory structure below shows where they can be found.
 You can download or clone the repository and run the tests with the command
-`../compile.sh test.d [-c<file>...]`.
+`../compile.sh test.d -- [-c<file>...]`.
 
 ~~~
 ...
