@@ -344,7 +344,7 @@ version (unittest) {
 }
 @("wrapnl: exceeds line then append")
 unittest {
-    // mixin (sut.wrapper.prologue);
+    mixin (sut.wrapper.prologue);
 
     import std.ascii: newline;
     import std.array: join;
