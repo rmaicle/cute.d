@@ -1,5 +1,6 @@
 module test.with_wrapper.mul;
 
+import sut;
 version (unittest) {
     static import test.with_wrapper.sut_wrapper;        // import
 }

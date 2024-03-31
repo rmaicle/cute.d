@@ -3,9 +3,9 @@
  */
 module test.with_wrapper.excluded;
 
+import sut;
 version (unittest) {
     static import test.with_wrapper.sut_wrapper;        // import
-    mixin (test.with_wrapper.sut_wrapper.exclude);      // exclude module
 }
 
 int div (const int arg, const int n) {

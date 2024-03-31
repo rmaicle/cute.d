@@ -1,5 +1,6 @@
 module test.selective_block.mul;
 
+import sut;
 version (unittest) {
     static import test.selective_block.sut_wrapper;         // changed
 }

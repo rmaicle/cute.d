@@ -7,6 +7,6 @@ size_t mul (const int arg, const int n) {
 }
 @("mul")                                    // unit test block name
 unittest {
-    mixin (unitTestBlockPrologue);          // necessary code
+    mixin (sut.mixins.prologueBlock);       // necessary code
     assert (mul(10, 2) == 20);
 }

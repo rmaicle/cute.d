@@ -1,5 +1,6 @@
 module test.failing.test;
 
+import sut;
 import test.failing.mul;
 import test.failing.no_prologue;
 import test.failing.no_unittest;

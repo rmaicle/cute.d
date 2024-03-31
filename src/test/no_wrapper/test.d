@@ -11,7 +11,7 @@ int add (const int arg, const int n) {
 }
 @("add")                                    // unit test block name
 unittest {
-    mixin (unitTestBlockPrologue);          // necessary code
+    mixin (sut.mixins.prologueBlock);       // necessary code
     assert (add(10, 1) == 11);
 }
 
@@ -20,6 +20,6 @@ int sub (const int arg, const int n) {
 }
 @("subtract")                               // unit test block name
 unittest {
-    mixin (unitTestBlockPrologue);          // necessary code
+    mixin (sut.mixins.prologueBlock);       // necessary code
     assert (sub(10, 1) == 9);
 }

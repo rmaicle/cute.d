@@ -1,5 +1,6 @@
 module test.with_wrapper.test;
 
+import sut;
 import test.with_wrapper.mul;
 import test.with_wrapper.no_prologue;
 import test.with_wrapper.no_unittest;

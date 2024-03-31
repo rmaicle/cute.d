@@ -1,5 +1,6 @@
 module test.failing.mul;
 
+import sut;
 version (unittest) {
     static import test.failing.sut_wrapper;         // changed
 }

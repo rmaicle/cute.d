@@ -1,5 +1,6 @@
 module test.selective_block.test;
 
+import sut;
 import test.selective_block.mul;
 import test.selective_block.no_prologue;
 import test.selective_block.no_unittest;
